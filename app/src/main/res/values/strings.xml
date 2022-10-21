@@ -3,4 +3,10 @@
     <string name="version">Version 1.0.0</string>
     <string name="author">Created by: Arturo Espinosa</string>
     <string name="branding_title">Formulario</string>
+    <string name="tx_formula">Selecciona una fórmula</string>
+    <string name="tx_tipo"><![CDATA[<-- Ecuacion -->]]></string>
+    <string name="btn_calcular">Calcular</string>
+    <string name="val_voltaje">V:</string>
+    <string name="val_resistencia">R:</string>
+    <string name="val_corriente">I:</string>
 </resources>
