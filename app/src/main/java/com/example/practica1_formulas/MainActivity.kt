@@ -6,7 +6,7 @@ import android.os.Bundle
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        // Set the default theme when the app is load and the splash theme when the app is start
+        // Set the default theme when the app is load & the splash theme when the app starts
         setTheme(R.style.Theme_Practica1Formulas)
 
         super.onCreate(savedInstanceState)
