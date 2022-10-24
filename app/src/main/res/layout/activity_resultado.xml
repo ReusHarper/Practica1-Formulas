@@ -54,14 +54,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="131dp"
         android:layout_marginBottom="250dp"
+        android:padding="20dp"
         android:background="@drawable/v_radius"
         android:onClick="regresar"
         android:text="@string/btn_regresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_tipo" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!--
     <com.google.android.material.textfield.TextInputLayout
