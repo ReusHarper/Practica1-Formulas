@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <Spinner
-        android:id="@+id/tv_tipo"
+        android:id="@+id/sp_tipo"
         android:layout_width="260dp"
         android:layout_height="35dp"
         android:text="@string/tx_tipo"
@@ -62,7 +62,7 @@
     <View
         android:id="@+id/vw_valores"
         android:layout_width="296dp"
-        android:layout_height="117dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,16 +73,16 @@
         android:id="@+id/btn_calcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/v_radius"
+        android:onClick="calcular"
         android:text="@string/btn_calcular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vw_valores"
-        app:layout_constraintVertical_bias="2" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_val1"
@@ -92,10 +92,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="@+id/vw_valores"
         app:layout_constraintTop_toTopOf="@+id/vw_valores"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.274" />
 
     <TextView
         android:id="@+id/tv_val2"
@@ -105,10 +105,36 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="@+id/vw_valores"
         app:layout_constraintTop_toTopOf="@+id/vw_valores"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.633" />
+
+    <EditText
+        android:id="@+id/etnd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
+        app:layout_constraintEnd_toEndOf="@+id/vw_valores"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toEndOf="@+id/tv_val1"
+        app:layout_constraintTop_toTopOf="@+id/vw_valores"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <EditText
+        android:id="@+id/etnd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
+        app:layout_constraintEnd_toEndOf="@+id/vw_valores"
+        app:layout_constraintStart_toEndOf="@+id/tv_val2"
+        app:layout_constraintTop_toBottomOf="@+id/etnd1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <!--
     <com.google.android.material.textfield.TextInputLayout

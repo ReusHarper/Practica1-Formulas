@@ -9,4 +9,7 @@
     <string name="val_voltaje">V:</string>
     <string name="val_resistencia">R:</string>
     <string name="val_corriente">I:</string>
+    <string name="btn_regresar">reiniciar app</string>
+    <string name="tx_header_resultado">Resultado:</string>
+    <string name="tx_resultado" />
 </resources>
