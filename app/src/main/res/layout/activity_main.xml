@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/tv_formula"
@@ -28,6 +28,7 @@
         android:text="@string/tx_formula"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="@+id/spinner"
@@ -40,6 +41,7 @@
         android:layout_height="56dp"
         android:text="@string/tx_tipo"
         android:textSize="20sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
         app:layout_constraintHorizontal_bias="0.5"
@@ -62,35 +64,20 @@
     <View
         android:id="@+id/vw_valores"
         android:layout_width="296dp"
-        android:layout_height="150dp"
+        android:layout_height="140dp"
+        android:background="@drawable/v_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_formula"
-        app:layout_constraintVertical_bias="0.157" />
-
-    <Button
-        android:id="@+id/btn_calcular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:padding="20dp"
-        android:background="@drawable/v_radius"
-        android:onClick="calcular"
-        android:text="@string/btn_calcular"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_valores"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/tv_val1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/val_corriente"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
         app:layout_constraintHorizontal_bias="0.076"
@@ -103,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/val_resistencia"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
         app:layout_constraintHorizontal_bias="0.077"
@@ -117,6 +104,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
         app:layout_constraintHorizontal_bias="0.543"
@@ -131,27 +119,27 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/vw_valores"
         app:layout_constraintEnd_toEndOf="@+id/vw_valores"
         app:layout_constraintStart_toEndOf="@+id/tv_val2"
         app:layout_constraintTop_toBottomOf="@+id/etnd1"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!--
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="154dp"
-        android:layout_height="43dp"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="67dp">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="163dp"
-        android:layout_height="21dp"
-        android:hint="hint"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="467dp" />
-    -->
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/v_radius"
+        android:onClick="calcular"
+        android:padding="20dp"
+        android:text="@string/btn_calcular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vw_valores"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

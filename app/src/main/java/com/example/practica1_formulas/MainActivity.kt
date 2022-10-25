@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.AndroidViewModel
 import com.example.practica1_formulas.databinding.ActivityMainBinding
 import java.util.*
 
@@ -207,6 +208,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         try {
             // Obtencion de la formula seleccionada mediante el spinner
             formulaSelected = spinner.getItem(position).toString()
+
+
+
             binding.imgFormula.setImageResource(getImageId(this, formulaSelected!!))
 
             // Asignacion de valor correspondiente de incognita dependiendo de la formula elegida

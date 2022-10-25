@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">Practica1-Formulas</string>
+    <string name="app_name">Practice1-Forms</string>
     <string name="version">Version 1.0.0</string>
     <string name="author">Created by: Arturo Espinosa</string>
-    <string name="branding_title">Formulario</string>
-    <string name="tx_formula">Selecciona una fórmula</string>
-    <string name="tx_tipo"><![CDATA[<-- Ecuacion -->]]></string>
-    <string name="btn_calcular">Calcular</string>
+    <string name="branding_title">Forms</string>
+    <string name="tx_formula">Select a form</string>
+    <string name="tx_tipo"><![CDATA[<— Equation -->]]></string>
+    <string name="btn_calcular">Calculate</string>
     <string name="val_voltaje">V:</string>
     <string name="val_resistencia">R:</string>
     <string name="val_corriente">I:</string>
-    <string name="btn_regresar">reiniciar app</string>
-    <string name="tx_header_resultado">Resultado:</string>
-    <string name="tx_resultado">Desconocido</string>
+    <string name="btn_regresar">Restart app</string>
+    <string name="tx_header_resultado">Result:</string>
+    <string name="tx_resultado">Unknow</string>
 </resources>
