@@ -11,5 +11,5 @@
     <string name="val_corriente">I:</string>
     <string name="btn_regresar">reiniciar app</string>
     <string name="tx_header_resultado">Resultado:</string>
-    <string name="tx_resultado" />
+    <string name="tx_resultado">Desconocido</string>
 </resources>

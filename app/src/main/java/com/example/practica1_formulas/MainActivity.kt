@@ -8,7 +8,6 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.practica1_formulas.databinding.ActivityMainBinding
 import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -21,6 +20,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var operadores: ArrayList<Double>
     private lateinit var spinner: ArrayAdapter<String>
     private lateinit var formulaSelected: String
+    private lateinit var unidades: String
+    private var error: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_Practica1Formulas)
@@ -82,18 +83,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         return resultado
     }
 
-    // Colocacion de resultado en nueva vista
-    fun envioResultado(resultado: Int) {
-        //bind
-    }
-
     // Para este ejercicio se realizara cada una de las operaciones por separado, teniendo en cuenta
     // sus metodos de forma independiente
     fun voltaje(operadores: ArrayList<Double>): Double {
         var resultado = 0.0
 
         try {
-            resultado = operadores[0] * operadores[1]
+            error = false
+            resultado = String.format("%.2f", (operadores[0] * operadores[1]) ).toDouble()
         } catch (e: Exception) {
             Toast.makeText(
                 this,
@@ -109,13 +106,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         var resultado = 0.0
 
         try {
-            if (operadores[1] != 0.0) resultado = operadores[0] / operadores[1]
+            // Se verifica que el dividendo sea diferente de cero
+            if (operadores[1] != 0.0) {
+                error = false
+                resultado = String.format("%.2f", (operadores[0] / operadores[1]) ).toDouble()
+            }
             else {
-                Toast.makeText(
-                    this,
-                    "Error: El valor de la resistencia no puede ser cero. Por favor vuelva a ingresar el dato de forma correcta.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                error = true
+                alertaCero("corriente")
             }
         } catch (e: Exception) {
             Toast.makeText(
@@ -132,13 +130,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         var resultado = 0.0
 
         try {
-            if (operadores[1] != 0.0) resultado = operadores[0] / operadores[1]
+            // Se verifica que el dividendo sea diferente de cero
+            if (operadores[1] != 0.0) {
+                error = false
+                resultado = String.format("%.2f", (operadores[0] / operadores[1]) ).toDouble()
+            }
             else {
-                Toast.makeText(
-                    this,
-                    "Error: El valor de la intensidad de corriente no puede ser cero. Por favor vuelva a ingresar el dato de forma correcta.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                error = true
+                alertaCero("corriente")
             }
         } catch (e: Exception) {
             Toast.makeText(
@@ -174,17 +173,29 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                // Si los datos ingresados son correctos se reenvian para su calculo y se muestran
-                // en la vista
                 else -> {
                     operadores = getDatos()
 
                     // Realizacion de calculos de la formula elegida por el usuario
                     val resultado = setOperacion(formulaSelected, operadores)
-                    intent.putExtra("resultado", resultado)
 
-                    // Se pasa a la nueva activity y se imprime el resultado
-                    startActivity(intent)
+                    // Si los datos ingresados son correctos se reenvian para su calculo y se muestran
+                    // en la vista
+                    if (!error) {
+                        intent.putExtra("resultado", resultado.toString())
+                        intent.putExtra("unidades", unidades)
+
+                        // Se pasa a la nueva activity, se imprime el resultado y se finaliza la vista
+                        startActivity(intent)
+                        finish()
+                    }
+                    else {
+                        // Se envia un mensaje de alerta senalando el dato ingresado que es erroneo
+                        when {
+                            unidades.equals("A") -> alertaCero("resistencia")
+                            else -> alertaCero("corriente")
+                        }
+                    }
                 }
             }
         }
@@ -212,6 +223,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     // De forma predeterminada se establece como primer formula la de voltaje
     override fun onNothingSelected(p0: AdapterView<*>?) {
         formulaSelected = "voltaje"
+        unidades = "V"
         binding.imgFormula.setImageResource(getImageId(this, formulaSelected!!))
     }
 
@@ -229,14 +241,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     formula.equals("voltaje") -> {
                         binding.tvVal1.text = "I:"
                         binding.tvVal2.text = "R:"
+                        unidades = "V"
                     }
                     formula.equals("corriente") -> {
                         binding.tvVal1.text = "V:"
                         binding.tvVal2.text = "R:"
+                        unidades = "A"
                     }
                     formula.equals("resistencia") -> {
                         binding.tvVal1.text = "V:"
                         binding.tvVal2.text = "I:"
+                        unidades = "Ohms"
                     }
                     else -> {
                         Toast.makeText(
@@ -254,6 +269,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 Toast.LENGTH_SHORT
             ).show()
         }
+    }
+
+    // Se crea un metodo encargado de enviar una alerta si el valor de la corriente o resistencia es cero
+    fun alertaCero(tipo: String) {
+        Toast.makeText(
+            this,
+            "Error: El valor de la $tipo no puede ser cero. Por favor vuelva a ingresar el dato de forma correcta.",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
 }
